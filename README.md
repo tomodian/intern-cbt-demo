@@ -15,7 +15,17 @@ Also download chromedriver in your repo root if you want to run the tests locall
 
 <https://sites.google.com/a/chromium.org/chromedriver/downloads>
 
-## Run
+## Run locally
+
+Run chromedriver.
+
+    make server
+
+Then run the tests.
+
+    make test
+
+## Run in CrossBrowserTesting
 
 Run local tunnel server.
 
