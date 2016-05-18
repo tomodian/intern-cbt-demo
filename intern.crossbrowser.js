@@ -1,17 +1,30 @@
 define({
+
+  capabilities: {
+    /* These capabilites are passed with every environment */
+    name: 'CrossBrowserTesting.com Intern Test',
+    build: '1.0',
+    username: 'YOUR-USERNAME',
+    password: 'YOUR-AUTHKEY',
+
+    /* Optional Capabilites */
+    record_video : 'true',
+    record_network : 'true'
+  },
+
   environments: [
     {
       browser_api_name: 'MblSafari8.0',
       os_api_name: 'iPhone6-iOS8sim',
-      record_video: true,
-      record_network: true
+      launchTimeout: 240000,
+      'idle-timeout': 300
     },
     {
       browser_api_name: 'MblChrome35',
       os_api_name: 'GalaxyS5-And44',
-      record_video: true,
-      record_network: true
-    },
+      launchTimeout: 240000,
+      'idle-timeout': 300
+    }
   ],
 
   maxConcurrency: 2,
@@ -21,10 +34,8 @@ define({
   tunnel: 'NullTunnel',
 
   tunnelOptions: {
-    clientUrl: 'http://' + process.env.CBT_USERNAME + ':' + process.env.CBT_AUTHKEY + '@hub.crossbrowsertesting.com/wd/hub',
-    username: process.env.CBT_USERNAME,
-    accessKey: process.env.CBT_AUTHKEY,
-    authKey: process.env.CBT_AUTHKEY
+    hostname: 'hub.crossbrowsertesting.com',
+    port: 80   
   },
 
   loaderOptions: {
